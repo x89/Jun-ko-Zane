@@ -1,0 +1,2 @@
+class Juni:
+    pass
