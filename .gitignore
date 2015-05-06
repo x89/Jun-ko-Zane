@@ -55,3 +55,9 @@ docs/_build/
 
 # PyBuilder
 target/
+
+# Config file (there is an example)
+juni.conf
+
+# Swap falise
+*.swp
