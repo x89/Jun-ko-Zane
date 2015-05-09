@@ -14,5 +14,4 @@ kargs = {
         'somethingelse': 321,
         }
 
-j.get(**kwargs)
-
+j.juni_here()

@@ -21,6 +21,7 @@ class Juni:
         # probaobly uses cookies and/or your IP to establish who you are.
 
         url = 'https://www.freelancer.com/users/onUpdateOnlineStatus.php'
+        header = 'application/x-www-form-encoded'
 
         the_120_pinger = {
             'cachetimeout': timeout,
@@ -29,9 +30,9 @@ class Juni:
         }
 
         post_data = urllib.parse.urlencode(the_120_pinger)
-        request = urllib.request.Request(url, the_120_pinger)
+        request = urllib.request.Request(url, post_data, header)
 
-        print(request)
+        print(request, request.__dict__)
         #assert req.code == 200, "Response wasn't 200, it was{0}".format(req.code)
         #content = req.read()
         #assert content == b'OK', "Result was %s" % http_code(content)
