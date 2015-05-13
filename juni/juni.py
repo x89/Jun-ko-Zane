@@ -1,6 +1,6 @@
 import urllib.request
 import urllib.parse
-from ..http_codes import http_codes
+from juni.http_codes import http_codes
 
 class Juni:
     def __init__(self, ids):
