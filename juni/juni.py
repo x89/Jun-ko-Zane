@@ -1,6 +1,6 @@
 import urllib.request
 import urllib.parse
-from juni.http_codes import http_codes
+from .http_codes import http_codes
 
 class Juni:
     def __init__(self, ids):
@@ -21,7 +21,6 @@ class Juni:
         # probaobly uses cookies and/or your IP to establish who you are.
 
         url = 'https://www.freelancer.com/users/onUpdateOnlineStatus.php'
-        header = 'application/x-www-form-encoded'
 
         the_120_pinger = {
             'cachetimeout': timeout,
@@ -30,9 +29,9 @@ class Juni:
         }
 
         post_data = urllib.parse.urlencode(the_120_pinger)
-        request = urllib.request.Request(url, post_data, header)
+        request = urllib.request.Request(url, post_data, headers={'Application': 'x-www-form-encoded'})
 
-        print(request, request.__dict__)
-        #assert req.code == 200, "Response wasn't 200, it was{0}".format(req.code)
-        #content = req.read()
-        #assert content == b'OK', "Result was %s" % http_code(content)
+        print(request, request.__dict__, request.data)
+        content = ''
+        assert request.code == 200, "Response wasn't 200, it was {0}".format(request)
+        assert content == b'OK', "Result was %s" % http_codes(content)
