@@ -2,10 +2,11 @@ import urllib.request
 import urllib.parse
 from .http_codes import http_codes
 
+
 class Juni:
     def __init__(self, ids):
         '''
-        Not sure if necessary. Yolo.
+        Not sure if necessary. Yolo
         '''
         assert isinstance(ids, tuple), "We expected a list, we got %s" % type(ids)
         assert len(ids) == 2, "Wanted 2 ID values, got %i" % len(ids)
@@ -29,9 +30,10 @@ class Juni:
         }
 
         post_data = urllib.parse.urlencode(the_120_pinger)
-        request = urllib.request.Request(url, post_data, headers={'Application': 'x-www-form-encoded'})
+        post_data = bytes(source=post_data, encoding='utf-8')
+        request = urllib.request.Request(url, post_data, method='POST')
 
-        print(request, request.__dict__, request.data)
-        content = ''
-        assert request.code == 200, "Response wasn't 200, it was {0}".format(request)
-        assert content == b'OK', "Result was %s" % http_codes(content)
+        response = urllib.request.urlopen(request)
+
+        assert response.status == 200, "Response wasn't 200, it was {0}".format(request.status)
+        assert response.msg == 'OK', "Response.msg was {0}".format(http_codes(response.msg))
