@@ -19,7 +19,7 @@ class Juni:
         '''
         # Location: POST https://www.freelancer.com/users/onUpdateOnlineStatus.php
         # It basically only sends shit (your current location and 120. It
-        # probaobly uses cookies and/or your IP to establish who you are.
+        # probaably uses cookies and/or your IP to establish who you are.
 
         url = 'https://www.freelancer.com/users/onUpdateOnlineStatus.php'
 
@@ -36,4 +36,4 @@ class Juni:
         response = urllib.request.urlopen(request)
 
         assert response.status == 200, "Response wasn't 200, it was {0}".format(request.status)
-        assert response.msg == 'OK', "Response.msg was {0}".format(http_codes(response.msg))
+        assert response.msg == 'OK', "Response.msg wascghrd {0}".format(http_codes(response.msg))
