@@ -17,6 +17,10 @@ wss_url = "wss://notifications.freelancer.com/{first_id}/{second_id}/websocket".
     second_id=ids[1],
 )
 
+wss_url = "wss://notifications.freelancer.com/info"
+
+# See socks.js
+
 @asyncio.coroutine
 def fl_notifications():
     ws = yield from websockets.connect(wss_url)
