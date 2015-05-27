@@ -25,8 +25,6 @@ def fl_notifications():
     while True:
         msg = yield from ws.recv()
         print(msg)
-        if msg == 'o':
-            yield from ws.send('')
         if not ws.open:
             break
 
